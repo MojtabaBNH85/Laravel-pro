@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Hi {{$name}}</h1>
+    <h1>Hi my name is {{ $name }} and i'm {{ $age }} years old</h1>
     <p>This is a test email don't fear. </p>
 </body>
 </html>
