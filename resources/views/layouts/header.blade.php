@@ -7,7 +7,19 @@
                         <li class="nav-item"><a class="nav-link" href="{{route('home')}}">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{route('about')}}">About</a></li>
                         <li class="nav-item"><a class="nav-link" href="">Articles   </a></li>
+                        @if (auth()->check())
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="/admin/articles">Articles</a></li>
+                        <li>                       
+                             <form action="{{route('logout')}}" method="POST">
+                                @csrf
+                                <button class="btn btn-danger">logout</button>
+                            </form>
+                        </li>
+                        @else
+                        <li class="nav-item">
+                            <a class="btn btn-info" href="{{route('login')}}">login</a>
+                        </li>
+                        @endif
                     </ul>
                 </div>
             </div>

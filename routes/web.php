@@ -9,9 +9,11 @@ Route::get('/', [HomeController::class , 'home'])->name('home');
 
 Route::get('/about', [HomeController::class , 'about'])->name("about");
 
-Route::get('/articles/{article}', [ArticleController::class , 'single']);
+Route::get('/articles/{article}', [ArticleController::class , 'single'])->middleware('auth');   
 
 Route::get('/mail/test' , [MailController::class , 'testMail']);
+
+Route::get('/home', [HomeController::class , 'welcome'])->middleware('auth');
 
 Route::resource('admin/articles' , 'App\Http\Controllers\Admin\ArticleController');
 
