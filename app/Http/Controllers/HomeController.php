@@ -4,11 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Article;
+use App\Models\User;
+use Database\Factories\UserFactory;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     public function home(){
+        $article = Article::find(5);
+        return $article->user;
         $articles = Article::orderBy('id' , 'desc')->get();
         return view('home', compact("articles"));
     }

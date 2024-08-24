@@ -2,7 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\Article;
 use App\Models\User;
+use Carbon\Factory;
+use Faker\Factory as FakerFactory;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -13,11 +16,20 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        User::factory(10)->create()->each(function ($user) {
+
+            $user->articles()->saveMany(Article::factory(rand(1, 6))->make());
+
+        });
+
+
+        // User::factory(10)->create();
+        // $this->call([
+        //     UsersSeeder::class,
+        //     ArticlesSeeder::class,
+        // ]);
+
     }
 }
