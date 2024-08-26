@@ -39,7 +39,7 @@ class ArticleController extends Controller
         
         $validate_data = $request->validated();
 
-        Article::create([
+        auth()->user()->articles()->create([
             'title' => $validate_data['title'],
             'body' => $validate_data['body']
         ]);

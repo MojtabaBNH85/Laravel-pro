@@ -17,6 +17,8 @@ Route::get('/home', [HomeController::class , 'welcome'])->middleware('auth');
 
 Route::resource('admin/articles' , 'App\Http\Controllers\Admin\ArticleController');
 
+Route::post('/articlecomment/create' , [ArticleController::class , 'comment']);
+
 Route::get('test', function () {
     echo 'go fuck your selfr';
 });
