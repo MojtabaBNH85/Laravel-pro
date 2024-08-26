@@ -18,18 +18,18 @@ class DatabaseSeeder extends Seeder
     {
         
 
-        User::factory(10)->create()->each(function ($user) {
+        // User::factory(10)->create()->each(function ($user) {
 
-            $user->articles()->saveMany(Article::factory(rand(1, 6))->make());
+        //     $user->articles()->saveMany(Article::factory(rand(1, 6))->make());
 
-        });
+        // });
 
 
         // User::factory(10)->create();
-        // $this->call([
-        //     UsersSeeder::class,
-        //     ArticlesSeeder::class,
-        // ]);
+        $this->call([
+            // UsersSeeder::class,
+            ArticlesCommentsSeeder::class,
+        ]);
 
     }
 }

@@ -17,6 +17,8 @@ class ArticleCommentFactory extends Factory
     public function definition(): array
     {
         return [
+            'article_id' => rand(1,25),
+            'user_id' => rand(1 , 11),
             'comment' => fake()->text(150) 
         ];
     }

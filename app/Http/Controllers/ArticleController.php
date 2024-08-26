@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class ArticleController extends Controller
 {
     public function single(Article $article){
-        $comments = ArticleComment::where('article_id' , '=' , $article->id)->get();
+        $comments = ArticleComment::where('article_id' , '=' , $article->id)->orderBy('id' , 'desc')->get();
         return view('admin.articles.show' , compact('article' , 'comments'));
     }
 
